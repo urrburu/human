@@ -1,11 +1,22 @@
 package uruburu.company.humanResource.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+import uruburu.company.Department.Entity.Department;
+
+import java.time.LocalDate;
 
 @Entity@Getter
+@Table(name = "TB_HR_HUMAN", indexes = {
+        @Index(name = "idx_name", columnList = "name"),
+        @Index(name="idx_id", columnList = "id")
+})
+@NoArgsConstructor
 public class HumanResource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,13 +26,25 @@ public class HumanResource {
 
     @Column(name = "name", nullable = false)
     @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
+    @Setter
     private String name;
 
-    @Column(name = "age", nullable = false)
-    @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
-    private Integer age;
+    @Column(name = "birthDate", nullable = false)
+    private LocalDate birthDate;
 
     @Column(name = "position", nullable = false)
     @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     private String position;
+
+    @Embedded
+    @Setter
+    private Department department;
+
+    public HumanResource(String name, LocalDate birthDate, String position, Department department) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.position = position;
+        this.department = department;
+    }
+
 }

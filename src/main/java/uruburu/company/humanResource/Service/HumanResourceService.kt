@@ -6,5 +6,5 @@ interface HumanResourceService {
 
     fun getHumanResourceList(): List<HumanResource>
     fun getHumanResource(id: Long): HumanResource
-
+    fun addHumanResource(humanResource: HumanResource): HumanResource
 }
