@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import uruburu.company.Department.Entity.Department;
+import uruburu.company.Salary.Entity.Salary;
 
 import java.time.LocalDate;
 
@@ -39,6 +40,9 @@ public class HumanResource {
     @Embedded
     @Setter
     private Department department;
+
+    @Embedded@Setter
+    private Salary salary;
 
     public HumanResource(String name, LocalDate birthDate, String position, Department department) {
         this.name = name;
