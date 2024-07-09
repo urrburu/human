@@ -16,8 +16,9 @@ class HumanResourceServiceImpl : HumanResourceService{
         return humanResourceRepository.getOneHumanResource(id)
     }
 
-    override fun addHumanResource(humanResource: HumanResource): HumanResource {
-        TODO("Not yet implemented")
+    override fun addHumanResource(humanResourceParameter: HumanResourceParameter): HumanResource {
+        val humanResource = HumanResource(humanResourceParameter.name, humanResourceParameter.birthDate, humanResourceParameter.position, humanResourceParameter.department)
+        return humanResourceRepository.addHumanResource(humanResource)
     }
 
     override fun deleteHumanResource(id: Long) {
@@ -25,6 +26,14 @@ class HumanResourceServiceImpl : HumanResourceService{
     }
 
     override fun updateHumanResource(id: Long, updateHumanResource: HumanResourceParameter): HumanResource {
+        TODO("Not yet implemented")
+    }
+
+    override fun duplicatedHumanResource(humanResourceParameter: HumanResourceParameter): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun getHumanResourceListByDepartment(departmentId: Long): List<HumanResource> {
         TODO("Not yet implemented")
     }
 

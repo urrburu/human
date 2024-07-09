@@ -7,7 +7,10 @@ interface HumanResourceService {
 
     fun getHumanResourceList(humanResourceParameter: HumanResourceParameter): List<HumanResource>
     fun getHumanResource(id: Long): HumanResource?
-    fun addHumanResource(humanResource: HumanResource): HumanResource
+    fun addHumanResource(humanResourceParameter : HumanResourceParameter): HumanResource
     fun deleteHumanResource(id: Long)
     fun updateHumanResource(id: Long, updateHumanResource: HumanResourceParameter): HumanResource
+    fun duplicatedHumanResource(humanResourceParameter: HumanResourceParameter): Boolean
+    fun getHumanResourceListByDepartment(departmentId: Long): List<HumanResource>
+
 }

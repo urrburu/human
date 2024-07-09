@@ -20,8 +20,9 @@ public class HumanResourceRepository {
         return entityManager.find(HumanResource.class, id);
     }
 
-    public void addHumanResource(HumanResource humanResource) {
+    public HumanResource addHumanResource(HumanResource humanResource) {
         entityManager.persist(humanResource);
+        return humanResource;
     }
 
     public void deleteHumanResource(Long id) {
