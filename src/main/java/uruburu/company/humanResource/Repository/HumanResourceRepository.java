@@ -16,8 +16,8 @@ public class HumanResourceRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void getOneHumanResource(Long id) {
-        entityManager.find(HumanResource.class, id);
+    public HumanResource getOneHumanResource(Long id) {
+        return entityManager.find(HumanResource.class, id);
     }
 
     public void addHumanResource(HumanResource humanResource) {
@@ -29,6 +29,8 @@ public class HumanResourceRepository {
     }
 
     public void updateHumanResource(Long id, HumanResourceParameter updateHumanResource) {
+        HumanResource humanResource = entityManager.find(HumanResource.class, id);
+        humanResource.setName(updateHumanResource.getName());
         entityManager.merge(updateHumanResource);
     }
 

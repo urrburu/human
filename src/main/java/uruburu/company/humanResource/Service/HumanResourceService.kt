@@ -6,7 +6,7 @@ import uruburu.company.humanResource.Entity.HumanResource
 interface HumanResourceService {
 
     fun getHumanResourceList(humanResourceParameter: HumanResourceParameter): List<HumanResource>
-    fun getHumanResource(id: Long)
+    fun getHumanResource(id: Long): HumanResource?
     fun addHumanResource(humanResource: HumanResource): HumanResource
     fun deleteHumanResource(id: Long)
     fun updateHumanResource(id: Long, updateHumanResource: HumanResourceParameter): HumanResource

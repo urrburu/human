@@ -12,7 +12,7 @@ class HumanResourceServiceImpl : HumanResourceService{
         return humanResourceRepository.getHumanResourceList(humanResourceParameter)
     }
 
-    override fun getHumanResource(id: Long) {
+    override fun getHumanResource(id: Long) : HumanResource? {
         return humanResourceRepository.getOneHumanResource(id)
     }
 

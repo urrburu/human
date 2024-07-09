@@ -28,8 +28,8 @@ public class HumanResourceAPIController {
     }
 
     @RequestMapping("/humanResourceList")
-    public List<HumanResource> humanResourceList() {
-        return humanResourceService.getHumanResourceList();
+    public List<HumanResource> humanResourceList(HumanResourceParameter humanResourceParameter) {
+        return humanResourceService.getHumanResourceList(humanResourceParameter);
     }
 
     @RequestMapping("/deleteHumanResource/{id}")
