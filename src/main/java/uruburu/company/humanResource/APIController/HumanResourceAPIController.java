@@ -23,8 +23,11 @@ public class HumanResourceAPIController {
     }
 
     @RequestMapping("/addHumanResource")
-    public HumanResource addHumanResource(HumanResource humanResource) {
-        return humanResourceService.addHumanResource(humanResource);
+    public HumanResource addHumanResource(HumanResourceParameter humanResourceParameter) {
+        if(humanResourceService.getDuplicatedHumanResourceCount(humanResourceParameter) > 0) {
+            throw new IllegalArgumentException("Duplicated HumanResource");
+        }
+        return humanResourceService.addHumanResource(humanResourceParameter);
     }
 
     @RequestMapping("/humanResourceList")
