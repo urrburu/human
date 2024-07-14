@@ -57,4 +57,10 @@ public class HumanResourceRepository {
         humanResource.setSalary(salary);
         entityManager.merge(humanResource);
     }
+
+    public void updateHumanResourceDepartment(long id, @NotNull String department) {
+        HumanResource humanResource = entityManager.find(HumanResource.class, id);
+        humanResource.getDepartment().setTeamName(department);
+        entityManager.merge(humanResource);
+    }
 }

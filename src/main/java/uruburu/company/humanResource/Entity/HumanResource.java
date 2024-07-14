@@ -1,7 +1,5 @@
 package uruburu.company.humanResource.Entity;
-
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +9,7 @@ import uruburu.company.Department.Entity.Department;
 import uruburu.company.Salary.Entity.Salary;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity@Getter
 @Table(name = "TB_HR_HUMAN", indexes = {
@@ -35,20 +34,36 @@ public class HumanResource {
 
     @Column(name = "position", nullable = false)
     @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
+    @Setter
     private String position;
 
-    @Embedded
     @Setter
+    private String grade;
+
+    @Setter
+    private Boolean isLeader;
+
+    @Setter
+    private Boolean isManager;
+
+    @Setter@OneToOne(fetch = FetchType.LAZY)
     private Department department;
 
-    @Embedded@Setter
+    @Setter
+    @OneToOne(fetch = FetchType.LAZY)
     private Salary salary;
 
-    public HumanResource(String name, LocalDate birthDate, String position, Department department) {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.position = position;
-        this.department = department;
-    }
+    @Setter
+    private LocalDateTime joinDate;
+
+    private LocalDateTime quitDate;
+
+    private LocalDateTime createdAt;
+
+    private String createdBy;
+
+    private LocalDateTime updatedAt;
+
+    private String updatedBy;
 
 }
