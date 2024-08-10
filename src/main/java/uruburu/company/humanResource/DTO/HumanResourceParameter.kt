@@ -1,13 +1,16 @@
 package uruburu.company.humanResource.DTO
 
-import uruburu.company.Department.Entity.Department
-import uruburu.company.Salary.Entity.Salary
-import java.time.LocalDate
 
-class HumanResourceParameter {
-    val name: String = ""
-    val birthDate: LocalDate = LocalDate.now()
-    val position: String = ""
-    val salary: Salary = Salary()
-    val department: Department = Department()
-}
+import java.time.LocalDate
+import java.time.LocalDateTime
+
+class HumanResourceParameter (
+    var name: String,
+    val birthDate: LocalDate,
+    val position: String,
+    val grade: String,
+    val joinDate: LocalDateTime,
+    val quitDate: LocalDateTime?,
+    val createdBy: String,
+    val updatedBy: String?
+)

@@ -32,11 +32,13 @@ public class HumanResource {
     @Column(name = "birthDate", nullable = false)
     private LocalDate birthDate;
 
+    //직책
     @Column(name = "position", nullable = false)
     @JdbcTypeCode(SqlTypes.LONGNVARCHAR)
     @Setter
     private String position;
 
+    //직급
     @Setter
     private String grade;
 
@@ -65,5 +67,30 @@ public class HumanResource {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    public HumanResource(String name, LocalDate birthDate, String position, String grade, LocalDateTime joinDate, LocalDateTime quitDate){
+        //최초생성 생성자
+        this.name = name;
+        this.birthDate = birthDate;
+        this.position = position;
+        this.grade = grade;
+        this.joinDate = joinDate;
+        this.quitDate = quitDate;
+        this.createdAt = LocalDateTime.now();
+        this.createdBy = "system";
+        this.updatedAt = LocalDateTime.now();
+        this.updatedBy = "system";
+    }
+
+    public HumanResource(String name, String position, String grade, LocalDateTime joinDate, LocalDateTime quitDate){
+        //업데이트 생성자
+        this.name = name;
+        this.position = position;
+        this.grade = grade;
+        this.joinDate = joinDate;
+        this.quitDate = quitDate;
+        this.updatedAt = LocalDateTime.now();
+        this.updatedBy = "system";
+    }
 
 }

@@ -21,7 +21,7 @@ class HumanResourceServiceImpl : HumanResourceService{
     }
 
     override fun addHumanResource(humanResourceParameter: HumanResourceParameter): HumanResource {
-        val humanResource = HumanResource(humanResourceParameter.name, humanResourceParameter.birthDate, humanResourceParameter.position, humanResourceParameter.department)
+        val humanResource = HumanResource(humanResourceParameter.name, humanResourceParameter.birthDate, humanResourceParameter.position, humanResourceParameter.grade, humanResourceParameter.joinDate, humanResourceParameter.quitDate)
         return humanResourceRepository.addHumanResource(humanResource)
     }
 
